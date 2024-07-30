@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AnaliseRepository extends JpaRepository<Analise, Long> {
     
-    List<Analise> findByUser_Id(Long id);
+    List<Analise> findByFilme_Id(Long id);
     
 }
