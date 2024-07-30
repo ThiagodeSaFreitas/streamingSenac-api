@@ -25,7 +25,7 @@ public class Analise {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "filme_id", nullable = false)
     private Filme filme;
