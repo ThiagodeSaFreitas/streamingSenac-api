@@ -3,6 +3,7 @@ package com.senac.streamingSenac.services;
 
 import com.senac.streamingSenac.models.Filme;
 import com.senac.streamingSenac.repositories.FilmeRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class FilmeService {
         Optional<Filme> filme = this.filmeRepository.findById(id);
         return filme.orElseThrow(() -> new RuntimeException(
         "Filme não encontrado. Id:" + id + ", Tipo: " + Filme.class.getName()));
+    }
+    
+    
+    public List<Filme> findAll() {
+        return filmeRepository.findAll();
     }
     
     @Transactional

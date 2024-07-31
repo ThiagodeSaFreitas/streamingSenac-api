@@ -5,6 +5,7 @@ import com.senac.streamingSenac.models.Filme;
 import com.senac.streamingSenac.services.FilmeService;
 import jakarta.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -30,6 +31,12 @@ public class FilmeController {
     public ResponseEntity<Filme> findById(@PathVariable Long id){
         Filme obj = this.filmeservice.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<Filme>> findAll() {
+        List<Filme> list = this.filmeservice.findAll();
+        return ResponseEntity.ok().body(list);
     }
     
     @PostMapping

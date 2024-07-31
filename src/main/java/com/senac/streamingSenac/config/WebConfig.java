@@ -1,13 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.senac.streamingSenac.config;
 
-/**
- *
- * @author Thiago de Sá
- */
-public class WebConfig {
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+/*@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
     
+    public void addCorsMappins(CorsRegistry registry){
+        registry.addMapping("/**")
+                .allowedOrigins("http://127.0.0.1:5500")
+                .allowedHeaders("*") 
+                .allowedMethods("GET", "PUT", "POST", "PATCH", "DELETE", "OPTIONS");        
+    }
+    
+}*/
+
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://127.0.0.1:5500") // Ajuste para o domínio de origem
+                .allowedHeaders("*")
+                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS");
+    }
 }
